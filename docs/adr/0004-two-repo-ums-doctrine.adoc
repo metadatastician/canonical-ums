@@ -1,0 +1,52 @@
+// SPDX-License-Identifier: CC-BY-SA-4.0
+= ADR-0004: canonical-ums and idaptik-ums are a deliberate two-repo split
+:status: Accepted
+:date: 2026-08-04
+
+== Status
+
+Accepted (owner ruling, 2026-08-04).
+
+== Context
+
+Estate notes from 2026-07-27 recorded "archive `metadatastician/canonical-ums`"
+as the expected end state, on the grounds that UMS #56 / idaptik-ums ADR-0015
+settled `idaptik-ums` as the single UMS repository and this tree was a mangled
+snapshot of it. This repository is indeed behind `idaptik-ums` (fewer tracked
+files, fewer ADRs) and carried real defects: a template-clobbered `guix.scm`
+under the wrong licence, a probot `settings.yml` armed with another repository's
+identity, and identity strings pointing at three different repo names.
+
+The owner has overruled the archive plan and stated the actual intent:
+
+* *`idaptik-ums`* is the *fast, experimental* UMS — focused on IDApTIK's
+  immediate needs, free to deliver directly to that game even when the result
+  is not usable for any other game.
+* *`canonical-ums`* (this repository) is the *slow, stable* UMS — the place
+  where work proven in `idaptik-ums` is generalised into game-agnostic form.
+
+== Decision
+
+1. `canonical-ums` is kept, not archived. Its defects are repaired
+   (licence, identity, CI hygiene) rather than treated as reasons to delete it.
+2. The flow of work is one-directional: *experiment in `idaptik-ums`,
+   generalise into `canonical-ums`*. Promotion is deliberate and selective —
+   this repo lagging the experimental one is by design, not rot, so bulk
+   syncs from `idaptik-ums` are not a goal.
+3. Game-agnostic invariants (contract consumption, profile protocol,
+   dependency boundaries) are this repo's contract surface. Game-specific
+   shortcuts stay in `idaptik-ums`.
+4. Both repos remain bound by the shared architectural rules: UMS is never a
+   runtime dependency of any game, and UMS Core never links game runtime
+   crates.
+
+== Consequences
+
+* Earlier prose implying this repository is a to-be-archived duplicate
+  (ADR-0002's framing, estate dev-notes) is superseded on that point.
+* Cross-repo fixes land in `idaptik-ums` first when they are experimental, and
+  are promoted here once stable; repairs that concern this repo's own identity
+  or hygiene land here directly.
+* The repository description and `STATE.a2ml` describe this split so future
+  sessions do not re-derive the "archive it" conclusion from the file-count
+  difference alone.

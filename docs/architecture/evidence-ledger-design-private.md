@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
 # Evidence ledger design — private canonical draft
 
 Status: **design draft v0.1**

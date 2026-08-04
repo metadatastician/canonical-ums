@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
 use clap::{Parser, Subcommand};
 use std::path::PathBuf;
 use std::process::ExitCode;
