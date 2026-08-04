@@ -32,6 +32,12 @@ SPDX-FileCopyrightText: 2025-2026 Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
   added; `READINESS.md` regraded; ADR-0001 superseded by ADR-0003 (2026-07-22).
 
 ### Fixed
+- Added `.github/workflows/actions.lock` (supply-chain lockfile via
+  `gh actions-lock`) and fixed two pre-existing phantom SHA pins in
+  `pages.yml`: `actions/upload-pages-artifact` and `actions/deploy-pages`
+  were pinned to commit SHAs that do not exist in their respective repos;
+  re-pinned to `v3.0.1`/`v4.0.5` after verifying via the GitHub API (#10,
+  2026-08-04).
 - `dlc/examples/ai-edit-sample/dlc-manifest.json` declared
   `verification.replay = "python3 -m ai_edit check …"`, a machine-readable
   evidence pointer to a deleted command (2026-07-22).
@@ -80,4 +86,4 @@ SPDX-FileCopyrightText: 2025-2026 Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
 - `Justfile` project metadata still carried the `rsr-template-repo`
   placeholders (2026-07-10).
 
-[Unreleased]: https://github.com/hyperpolymath/idaptik-ums/compare/HEAD...HEAD
+[Unreleased]: https://github.com/metadatastician/canonical-ums/compare/HEAD...HEAD

@@ -76,13 +76,43 @@ stated rather than papered over.
 - `dlc/legacy-ts-puzzles/` carries a directory name from its
   ReScript/TypeScript origin. The 27 files are plain JSON; only the path is
   stale.
-- RSR compliance is partial: `.machine_readable/6a2/` + contractiles are
-  present, but `0-AI-MANIFEST.a2ml` is absent and no Immaculate Guide
-  compliance evidence is recorded in STATE.a2ml (a formal Grade-D
-  requirement for hyperpolymath projects — tracked as debt, not waived).
+- RSR compliance is partial: `.machine_readable/descriptiles/` (renamed from
+  `6a2` in #42, 2026-07-23) + contractiles are present, and
+  `0-AI-MANIFEST.a2ml` exists (verified 2026-08-04 — the "absent" claim
+  logged at the 2026-07-22 assessment does not hold today), but no
+  Immaculate Guide compliance evidence is recorded in `STATE.a2ml` (a formal
+  Grade-D requirement for hyperpolymath projects — tracked as debt, not
+  waived).
+- This repo is private and lacks GitHub Advanced Security, so
+  `codeql.yml`'s and `oikosbot.yml`'s SARIF-upload steps 403 on every run,
+  including `main` ("Advanced Security must be enabled for this repository
+  to use code scanning") — not a code finding, a billing/policy state.
+  Worked around in-band (`codeql.yml`: `upload: false`; `oikosbot.yml`:
+  `continue-on-error: true` on the upload step) rather than fixed at the
+  root: an attempt to flip the repo to public was silently reverted within
+  minutes by what looks like an org-level policy on `metadatastician`.
+  **Do not re-attempt that flip blind** — either get an explicit owner
+  decision on visibility first, or enable GHAS on the private repo if the
+  org plan allows it, then drop the workarounds (2026-08-04).
+- `rust-ci.yml` has a pre-existing, confirmed-still-failing test:
+  `idaptik_compiler_consumes_the_sibling_game_contract`
+  (`crates/ums-profiles/tests/profiles.rs:63`) expects a sibling checkout at
+  `/home/runner/work/canonical-ums/IDApTIK/contracts/idaptik/v1/contract.json`,
+  which the workflow never provides — there is no sibling-checkout step in
+  `rust-ci.yml`. Confirmed failing on `main` across the last several runs
+  (`gh run list --workflow=rust-ci.yml`), unrelated to any other work in
+  flight. Actionable: either add a step to `rust-ci.yml` that checks out
+  `metadatastician/IDApTIK` alongside this repo before the test suite runs,
+  or gate/skip the test when the sibling contract isn't present, so a
+  currently-red `main` doesn't stay silently red (2026-08-04).
 - Until 2026-07-20 the Justfile's `test-all` chained five echo-stubs and
   printed "safe to merge!". Those recipes are deleted; every remaining gate
   runs real work and can fail.
+- No dedicated `secret-scanner.yml` workflow exists in `.github/workflows/`
+  (verified 2026-08-04), unlike the sibling repos `enaction-engine`,
+  `burble` and `IDApTIK`, which all carry one. Not fixed here — adding a
+  scanning gate is a decision for the repo owner (which scanner, which
+  config/allowlist), not a mechanical hygiene fix.
 
 ## Promotion paths
 

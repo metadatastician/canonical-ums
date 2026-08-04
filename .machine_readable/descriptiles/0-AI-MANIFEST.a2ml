@@ -1,10 +1,14 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # SPDX-FileCopyrightText: 2025-2026 Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
-# AI Manifest for 6a2 Directory
+# AI Manifest for descriptiles Directory
+#
+# Corrected 2026-08-04 (docs/repo-hygiene-sweep): this directory was renamed
+# from `6a2` to `descriptiles` in #42 (2026-07-23), a pure `git mv` that left
+# this file's own prose referring to the old name — fixed here to match.
 
 ## Purpose
 
-This manifest declares the AI-assistant context for the 6a2 machine-readable metadata directory.
+This manifest declares the AI-assistant context for the descriptiles machine-readable metadata directory.
 
 ## Canonical Locations
 
