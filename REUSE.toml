@@ -14,6 +14,13 @@ SPDX-PackageDownloadLocation = "https://github.com/metadatastician/canonical-ums
 # fails CI rather than silently going unattributed.
 
 [[annotations]]
+path = ".github/workflows/actions.lock"
+precedence = "aggregate"
+comment = "Machine-generated and rewritten in place by `gh actions-lock`; do not hand-edit, so no header is inserted into it."
+SPDX-FileCopyrightText = "2025-2026 Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>"
+SPDX-License-Identifier = "AGPL-3.0-or-later"
+
+[[annotations]]
 path = "schemas/*.json"
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2025-2026 Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>"

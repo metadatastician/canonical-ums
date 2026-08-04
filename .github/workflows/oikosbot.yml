@@ -1,3 +1,4 @@
+# This workflow is managed by gh actions-lock.
 # SPDX-License-Identifier: AGPL-3.0-or-later
 name: OikosBot Sustainability Analysis
 
@@ -18,22 +19,31 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+      - uses: actions/checkout@v7.0.1
 
       # OikosBot's own composite action runs the published CLI container.
       # It replaces a hand-rolled job that could never work: the image tag it
       # pinned has never existed on the package, so the job died at container
       # pull, and the failure was masked. Config comes from .oikos.yml.
       - name: Run OikosBot analysis
-        uses: hyperpolymath/oikosbot@bb95ab5063ab9b43a948e21ed8b3fe35b1d1768b  # v0.1.0
+        uses: hyperpolymath/oikosbot@v0.1.0
         with:
           mode: report
           path: .
           output: results.sarif
 
+      # This repo is private without GitHub Advanced Security, so the
+      # Security tab is unreachable and this upload 403s on every run
+      # ("Advanced Security must be enabled for this repository to use
+      # code scanning") — on main as much as on any PR. That is a
+      # billing/policy state for this org, not a finding about the code
+      # under test, so it must not fail the workflow. Analysis still
+      # runs above; only the upload is tolerated. Drop
+      # continue-on-error once GHAS is enabled for this repo.
       - name: Upload SARIF to GitHub Security
         if: always()
-        uses: github/codeql-action/upload-sarif@4187e74d05793876e9989daffde9c3e66b4acd07 # v3
+        continue-on-error: true
+        uses: github/codeql-action/upload-sarif@v3.37.3
         with:
           sarif_file: results.sarif
           category: oikosbot
