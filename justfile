@@ -21,7 +21,7 @@ import? "build/contractile.just"
 # Project metadata — customize these
 project := "canonical-ums"
 OWNER := "metadatastician"
-REPO := "idaptik-ums"
+REPO := "canonical-ums"
 version := "0.1.0"
 tier := "infrastructure"  # 1 | 2 | infrastructure
 
