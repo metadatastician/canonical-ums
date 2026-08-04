@@ -25,7 +25,7 @@ on:
       - 'config/**'
       - 'schemas/**'
       - 'scripts/gen.sh'
-      - 'Justfile'
+      - 'justfile'
       - '.github/workflows/config-gen.yml'
   pull_request:
     branches: [main]
@@ -33,7 +33,7 @@ on:
       - 'config/**'
       - 'schemas/**'
       - 'scripts/gen.sh'
-      - 'Justfile'
+      - 'justfile'
       - '.github/workflows/config-gen.yml'
   workflow_dispatch:
 

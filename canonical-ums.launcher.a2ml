@@ -1,13 +1,13 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # SPDX-FileCopyrightText: 2025-2026 Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
 #
-# idaptik-ums-canonical.launcher.a2ml — per-app launcher config for IDApTIK Universal Modding Studio (Canonical).
+# canonical-ums.launcher.a2ml — per-app launcher config for IDApTIK Universal Modding Studio (Canonical).
 # Compliant with launcher-standard.a2ml v0.3.0
 #
 # IDApTIK UMS: Procedural generation and validation pipeline for IDApTIK game modding
 
 [project]
-name         = "idaptik-ums-canonical"
+name         = "canonical-ums"
 display      = "IDApTIK Universal Modding Studio"
 description  = "Canonical instance of the procedural-generation pipeline and integration toolkit for IDApTIK game modding"
 categories   = ["Development", "Game", "Modding"]
@@ -33,14 +33,14 @@ startup-command-search = [
 # Per launcher-standard.a2ml [runtime] section:
 # PID files MUST use XDG_RUNTIME_DIR or TMPDIR, NEVER /tmp directly
 # Log files MUST use XDG_STATE_HOME, NEVER /tmp directly
-pid-file = "${XDG_RUNTIME_DIR:-${TMPDIR:-/tmp}}/idaptik-ums-canonical.pid"
-log-file = "${XDG_STATE_HOME:-$HOME/.local/state}/idaptik-ums-canonical/ums.log"
+pid-file = "${XDG_RUNTIME_DIR:-${TMPDIR:-/tmp}}/canonical-ums.pid"
+log-file = "${XDG_STATE_HOME:-$HOME/.local/state}/canonical-ums/ums.log"
 wait-for-url-timeout-seconds = 30
 
 [version-output]
 # Per launcher-standard.a2ml [version-output] section
-first-line-format = "idaptik-ums-canonical {version} ({build-sha-short}) [{platform}]"
-example = "idaptik-ums-canonical 0.1.0 (abc1234) [linux-x86_64]"
+first-line-format = "canonical-ums {version} ({build-sha-short}) [{platform}]"
+example = "canonical-ums 0.1.0 (abc1234) [linux-x86_64]"
 exit-code = 0
 
 [icon]

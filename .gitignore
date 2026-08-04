@@ -61,3 +61,4 @@ harden/
 *.temp
 tmp/
 temp/
+.claude/

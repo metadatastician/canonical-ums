@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
 //! Data-driven UMS game profiles.
 //!
 //! This crate knows the generic profile protocol. Game vocabulary stays in

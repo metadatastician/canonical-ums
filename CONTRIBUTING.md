@@ -1,13 +1,14 @@
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
 # Clone the repository
-git clone https://github.com/metadatastician/idaptik-ums-canonical.git
-cd idaptik-ums-canonical
+git clone https://github.com/metadatastician/canonical-ums.git
+cd canonical-ums
 
 # Using Nix (recommended for reproducibility)
 nix develop
 
 # Or using toolbox/distrobox
-toolbox create idaptik-ums-canonical-dev
-toolbox enter idaptik-ums-canonical-dev
+toolbox create canonical-ums-dev
+toolbox enter canonical-ums-dev
 # Install dependencies manually
 
 # Verify setup
@@ -17,7 +18,7 @@ just test    # Run test suite
 
 ### Repository Structure
 ```
-idaptik-ums-canonical/
+canonical-ums/
 ├── src/                 # Source code (Perimeter 1-2)
 ├── lib/                 # Library code (Perimeter 1-2)
 ├── extensions/          # Extensions (Perimeter 2)
@@ -86,10 +87,10 @@ Use the [feature request template](.github/ISSUE_TEMPLATE/feature_request.md) an
 
 Look for issues labelled:
 
-- [`good first issue`](https://github.com/metadatastician/idaptik-ums-canonical/labels/good%20first%20issue) — Simple Perimeter 3 tasks
-- [`help wanted`](https://github.com/metadatastician/idaptik-ums-canonical/labels/help%20wanted) — Community help needed
-- [`documentation`](https://github.com/metadatastician/idaptik-ums-canonical/labels/documentation) — Docs improvements
-- [`perimeter-3`](https://github.com/metadatastician/idaptik-ums-canonical/labels/perimeter-3) — Community sandbox scope
+- [`good first issue`](https://github.com/metadatastician/canonical-ums/labels/good%20first%20issue) — Simple Perimeter 3 tasks
+- [`help wanted`](https://github.com/metadatastician/canonical-ums/labels/help%20wanted) — Community help needed
+- [`documentation`](https://github.com/metadatastician/canonical-ums/labels/documentation) — Docs improvements
+- [`perimeter-3`](https://github.com/metadatastician/canonical-ums/labels/perimeter-3) — Community sandbox scope
 
 ---
 

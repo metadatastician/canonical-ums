@@ -19,7 +19,7 @@ set positional-arguments := true
 import? "build/contractile.just"
 
 # Project metadata — customize these
-project := "idaptik-ums"
+project := "canonical-ums"
 OWNER := "metadatastician"
 REPO := "idaptik-ums"
 version := "0.1.0"

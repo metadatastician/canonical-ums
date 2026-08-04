@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
 # IDApTIK private cognitive-model working note
 
 This document is intentionally kept in the private canonical UMS repository.

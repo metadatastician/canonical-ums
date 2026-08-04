@@ -7,14 +7,14 @@
 # applied by the probot/settings app when changes are pushed to the default
 # branch. Install the app at: https://github.com/apps/settings
 #
-# Repository settings — configured for paint-type.
+# Repository settings — configured for canonical-ums.
 
 # ─── Repository Settings ───────────────────────────────────────────────────────
 
 repository:
-  name: "paint-type"
-  description: "Cross-platform open-source image editor — capable enough for real work, simple enough to reach for without thinking"
-  homepage: "https://github.com/metadatastician/paint-type"
+  name: "canonical-ums"
+  description: "Universal Modding Studio — stable generalised core: authoring, validation and packaging for game content"
+  homepage: "https://github.com/metadatastician/canonical-ums"
   private: false
   has_issues: true
   has_projects: true

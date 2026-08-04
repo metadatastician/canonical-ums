@@ -24,14 +24,14 @@ on:
     paths:
       - 'ffi/zig/**'
       - 'mise.toml'
-      - 'Justfile'
+      - 'justfile'
       - '.github/workflows/zig-ci.yml'
   pull_request:
     branches: [main, master]
     paths:
       - 'ffi/zig/**'
       - 'mise.toml'
-      - 'Justfile'
+      - 'justfile'
       - '.github/workflows/zig-ci.yml'
   workflow_dispatch:
 
