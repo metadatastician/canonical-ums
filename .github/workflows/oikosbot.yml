@@ -32,8 +32,17 @@ jobs:
           path: .
           output: results.sarif
 
+      # This repo is private without GitHub Advanced Security, so the
+      # Security tab is unreachable and this upload 403s on every run
+      # ("Advanced Security must be enabled for this repository to use
+      # code scanning") — on main as much as on any PR. That is a
+      # billing/policy state for this org, not a finding about the code
+      # under test, so it must not fail the workflow. Analysis still
+      # runs above; only the upload is tolerated. Drop
+      # continue-on-error once GHAS is enabled for this repo.
       - name: Upload SARIF to GitHub Security
         if: always()
+        continue-on-error: true
         uses: github/codeql-action/upload-sarif@v3.37.3
         with:
           sarif_file: results.sarif

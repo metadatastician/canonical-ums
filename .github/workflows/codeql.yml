@@ -43,7 +43,16 @@ jobs:
         with:
           languages: ${{ matrix.language }}
           build-mode: ${{ matrix.build-mode }}
+      # This repo is private without GitHub Advanced Security, so the
+      # Security tab is unreachable and an upload here 403s on every run
+      # ("Advanced Security must be enabled for this repository to use
+      # code scanning") — a billing/policy state for this org, not a
+      # finding about the code under test. `upload: false` is the
+      # documented way to keep the analysis (still a real build/lint
+      # signal) without attempting the upload it cannot complete. Restore
+      # the default once GHAS is enabled for this repo.
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3.37.3
         with:
           category: "/language:${{ matrix.language }}"
+          upload: false
