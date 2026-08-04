@@ -54,6 +54,18 @@
 # Denote all Zig files as text
 *.zig text
 
+# Denote all Idris2 files as text (abi/*.idr — 18 files in this tree)
+*.idr text
+
+# Denote all Nickel files as text (config/*.ncl — 7 files in this tree)
+*.ncl text
+
+# Denote all A2ML files as text (.machine_readable/**/*.a2ml — 19 files in this tree)
+*.a2ml text
+
+# Denote all AsciiDoc files as text (README.adoc, docs/**/*.adoc — 15 files in this tree)
+*.adoc text
+
 # Line endings
 *.sh eol=lf
 *.py eol=lf
@@ -64,6 +76,10 @@
 *.toml eol=lf
 *.js eol=lf
 *.ts eol=lf
+*.idr eol=lf
+*.ncl eol=lf
+*.a2ml eol=lf
+*.adoc eol=lf
 Makefile eol=lf
 Dockerfile eol=lf
 

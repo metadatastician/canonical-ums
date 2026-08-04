@@ -24,6 +24,11 @@ __pycache__/
 # Rust build artefacts
 /target/
 
+# Nix build output symlinks (flake.nix is present; `nix build` drops these
+# at the repo root by default)
+/result
+/result-*
+
 # Virtual environments
 .venv/
 venv/

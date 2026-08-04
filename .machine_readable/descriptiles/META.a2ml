@@ -9,8 +9,8 @@ version = "0.1.0"
 last-updated = "2026-04-11"
 
 [project-info]
-type = "library"  # TODO: update type (library|binary|service|website|monorepo)  # library | binary | monorepo | service | website
-languages = []             # e.g. ["rust", "zig", "idris2"]
+type = "monorepo"  # library | binary | monorepo | service | website — multi-component: crates/, abi/, ffi/, config/
+languages = ["rust", "idris2", "zig", "nickel"]
 license = "AGPL-3.0-or-later"
 author = "Jonathan D.A. Jewell (hyperpolymath)"
 

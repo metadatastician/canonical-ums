@@ -1,30 +1,33 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # SPDX-FileCopyrightText: 2025-2026 Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
 # ECOSYSTEM.a2ml — Ecosystem position
-# Converted from ECOSYSTEM.scm on 2026-04-14
+#
+# Corrected 2026-08-04 (docs/repo-hygiene-sweep): this file previously
+# described "pseudoscript", an unrelated programming-language project —
+# almost certainly carried over unedited from another repo's descriptile
+# during scaffolding. Rewritten against this repo's own verified tree
+# (README.adoc, STATE.a2ml, docs/adr/0004-two-repo-ums-doctrine.adoc,
+# docs/architecture/CROSS-PROJECT-CONTRACTS.adoc). Only relationships
+# stated in those sources are recorded here — nothing invented.
 
 [metadata]
-project = "pseudoscript"
+project = "canonical-ums"
 ecosystem = "hyperpolymath"
 
 [position]
-type = "programming-language"
-purpose = "Pseudocode-syntax AffineScript. Write code that looks like pseudocode. Get affine resource guarantees and typed WASM out."
+type = "modding-studio"
+purpose = "Universal Modding Studio (UMS): the stable, generalised, game-agnostic core for authoring, validating and compiling game profiles against game-owned versioned contracts. Not a runtime dependency of any game; UMS Core never links game runtime crates (docs/architecture/CROSS-PROJECT-CONTRACTS.adoc)."
 
 [pipeline]
-position = "co-product"
-chain = "katagoria → typell → typed-wasm → PanLL"
-notes = "PseudoScript compiles to typed WasmGC. TypeLL grounds its type system. typed-wasm provides the shared binary layout and ABI conventions."
-coordination = "nextgen-typing"
+position = "profile-compiler"
+chain = "UMS source/editor -> isolated game profile compiler -> game-owned versioned package contract -> game-owned loader and deterministic runtime"
+notes = "Per docs/architecture/CROSS-PROJECT-CONTRACTS.adoc. The IDApTIK profile compiler reads IDApTIK's contracts/idaptik/v1/contract.json and emits idaptik-package/v1, consumed by IDApTIK's own Rust game loader. The Chronicles of Slavia profile is currently descriptive/validated only; no Slavia runtime loader is claimed."
+coordination = "ums-idaptik-slavia-enaction-2026-07-25 (STATE.a2ml cross-repository-reconciliation)"
 
 [related-projects]
 projects = [
-  { name = "typell", relationship = "type-theory-foundation", notes = "TypeLL's open-ended progressive framework grounds PseudoScript's type system. typell-pseudoscript bridge crate." },
-  { name = "typed-wasm", relationship = "aggregate-library", notes = "Shared binary layout conventions for WasmGC cross-language calls. PseudoScript Option[T]/Result[T,E]/String have agreed layouts here." },
-  { name = "nextgen-typing", relationship = "coordination-parent", notes = "Coordination monorepo for the type theory pipeline. Canonical architecture doc." },
-  { name = "affinescript", relationship = "foundation", notes = "PseudoScript is a syntactic face of AffineScript." },
-  { name = "rattlescript", relationship = "sibling", notes = "Both are syntactic faces of AffineScript." },
-  { name = "ephapax", relationship = "sibling-wasm-target", notes = "Both compile to typed WasmGC. Independent designs; converge at binary level via typed-wasm." },
-  { name = "katagoria", relationship = "research-upstream", notes = "Type theory research origination. Future PseudoScript type system extensions may originate there." },
-  { name = "panll", relationship = "consumer", notes = "PseudoScript is one of PanLL's development language targets." },
+  { name = "idaptik-ums", relationship = "sibling-experimental", notes = "The fast, experimental UMS focused on IDApTIK's immediate needs. Work is generalised from idaptik-ums into canonical-ums; the flow is one-directional and canonical-ums lagging is by design (ADR-0004)." },
+  { name = "IDApTIK", relationship = "contract-authority", notes = "Owns ScenarioDefinition, package loading, semantic validation IDs, snapshot compatibility and runtime migrations. canonical-ums's IDApTIK profile compiler reads IDApTIK's contracts/idaptik/v1/contract.json and does not maintain a second LevelData or action/objective enum (contract-authority field, STATE.a2ml)." },
+  { name = "Chronicles of Slavia", relationship = "sibling-profile-game", notes = "The Slavia profile (profiles/slavia) validates Zone A / Border Path concepts through the generic profile protocol. Descriptive and validated only — no Slavia runtime package loader is claimed." },
+  { name = "enaction-engine", relationship = "primitive-comparison-only", notes = "CROSS-PROJECT-CONTRACTS.adoc documents structural correspondences between Enaction primitives (event, appraisal, affective state, ...) and IDApTIK/Slavia usage, but explicitly: 'Enaction does not depend on UMS.' No code dependency in either direction." },
 ]

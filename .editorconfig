@@ -59,3 +59,10 @@ trim_trailing_whitespace = false
 # Configuration files
 [*.{json,yml,yaml,toml,xml,svg}]
 indent_size = 2
+
+# Nickel (config/*.ncl) and A2ML (.machine_readable/**/*.a2ml) — both
+# config-shaped and both 2-space indented in this tree; neither extension
+# was previously listed here even though .ncl (7 files) and .a2ml (19
+# files) are a real share of the repo (verified via `git ls-files`).
+[*.{ncl,a2ml}]
+indent_size = 2
