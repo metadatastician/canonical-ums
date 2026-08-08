@@ -37,7 +37,7 @@ jobs:
       - name: Checkout
         # Full-SHA pin: this repo's Actions policy sets
         # sha_pinning_required, so tag refs like @v4 startup_failure.
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v7.0.1
       - name: Install proven (pinned minimal closure)
         run: |
           set -eux

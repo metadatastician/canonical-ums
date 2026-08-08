@@ -59,7 +59,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
 
@@ -71,7 +71,7 @@ jobs:
           cargo --version
 
       - name: Cache cargo
-        uses: actions/cache@v4.2.0
+        uses: actions/cache@v6.1.0
         with:
           path: |
             ~/.cargo/registry
