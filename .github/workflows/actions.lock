@@ -8,6 +8,8 @@ workflows:
         - 'github/codeql-action@v3.37.3'
     '.github/workflows/config-gen.yml':
         - 'actions/checkout@v4.1.1'
+    '.github/workflows/governance.yml': []
+    '.github/workflows/hypatia-scan.yml': []
     '.github/workflows/idris-ci.yml':
         - 'actions/checkout@v4.1.1'
     '.github/workflows/licence-hygiene.yml':
